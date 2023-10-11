@@ -1,6 +1,9 @@
 package main
 
-import "errors"
+import (
+	"errors"
+	"log"
+)
 
 func doSomethingCool(errorPls bool) (int, error) {
 	if errorPls {
@@ -15,8 +18,8 @@ func main() {
 		panic(err)
 	}
 	println(val)
-	_, err = doSomethingCool(true)
+	_, err = doSomethingCool(true) // _ is used to ignore the return value
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
